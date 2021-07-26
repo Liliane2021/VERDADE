@@ -53,19 +53,19 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(600, 600);
   
-  trex = createSprite(50, 180,20,50);
+  trex = createSprite(50,420,20,50);
   trex.addAnimation("running", trex_correndo);
  trex.addAnimation("collided", trexcolide);
   
-  trex.scale = 0.5;
+  trex.scale = 0.9;
   
-  solo = createSprite(200,180,400,20);
+  solo = createSprite(200,420,400,20);
    solo.addImage("ground",imagemdosolo);
    solo.velocityX = -4;  
   
-  soloinvisivel = createSprite(200,190,400,10);
+  soloinvisivel = createSprite(200,450,400,10)
   soloinvisivel.visible = false;
    
  grupodeobstaculos=createGroup()
@@ -100,12 +100,16 @@ if (estadojogo===jogar)  {
     
     
     //saltar quando a tecla de espaço é pressionada
-    if((touches.length > 0 ||keyDown("space"))&& trex.y >= height-120) {
+    if((touches.length > 0 ||keyDown("space"))&& trex.y >= height -120
+       ) {
+       
+
        trex.velocityY = -13;
       //3 - Atribuir o SomSalto 
       somSalto.play()
       
       touches=[]
+      
       
   }
     
@@ -165,9 +169,9 @@ if (estadojogo===jogar)  {
 
 function gerarObstaculos(){
  if (frameCount % 60 === 0){
-   var obstaculo = createSprite(400,165,10,40);
+   var obstaculo = createSprite(400,420,10,40);
   obstaculo.velocityX = -6;
-    obstaculo.scale = 0.5;
+    obstaculo.scale = 0.7;
       
     //gerar obstáculos aleatórios
     var rand = Math.round(random(1,6));
@@ -201,7 +205,7 @@ function gerarNuvens() {
   
     
     nuvem.addImage(imagemdanuvem);
-    nuvem.scale = 0.5;
+    nuvem.scale = 0.7;
     nuvem.velocityX = -3;
     
      
